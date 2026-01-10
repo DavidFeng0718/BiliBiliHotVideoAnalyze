@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
   schedule:
     # 每天 03:00 UTC 跑一次（法国冬令时=04:00，夏令时=05:00）
-    - cron: "0 3 * * *"
+    - cron: "0 9 * * *"
 
 jobs:
   run:
