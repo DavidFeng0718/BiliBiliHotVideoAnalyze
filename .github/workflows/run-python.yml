@@ -1,0 +1,44 @@
+name: Run Python Script
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: {}
+  schedule:
+    # 每天 03:00 UTC 跑一次（法国冬令时=04:00，夏令时=05:00）
+    - cron: "0 3 * * *"
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run script
+        env:
+          # 如果你脚本要用环境变量，在这里加
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python Spider/run.py
+
+        
+      - name: Commit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: daily run output"
+          git push
