@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-update_snapshots.py — Week2: 快照补抓（1h/3h/6h）
+update_snapshots.py — Week2: 快照补抓（1h/3h/6h）仅用 bvid
 
 强制要求（来自 README）：
 - API: https://api.bilibili.com/x/web-interface/archive/stat
@@ -20,8 +20,8 @@ import argparse
 import json
 import os
 import time
-from datetime import date
-from typing import Any, Dict, List, Optional, Tuple
+from datetime import datetime
+from typing import Any, Dict, List, Optional
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -45,12 +45,20 @@ HEADERS = {
 DELTAS = [("1h", 3600), ("3h", 3 * 3600), ("6h", 6 * 3600)]
 
 
+# ✅ 明确用巴黎时区生成 daily 文件名，避免跨天错位
+def today_str_paris() -> str:
+    # Python 3.9+ 内置 zoneinfo
+    try:
+        from zoneinfo import ZoneInfo  # type: ignore
+        tz = ZoneInfo("Europe/Paris")
+        return datetime.now(tz).date().isoformat()
+    except Exception:
+        # 兜底：用本地时区
+        return datetime.now().date().isoformat()
+
+
 def utc_ts() -> int:
     return int(time.time())
-
-
-def today_str() -> str:
-    return date.today().isoformat()
 
 
 def ensure_dir(path: str) -> None:
@@ -121,22 +129,15 @@ def eligible(pubdate: int, now_ts: int, delta_s: int) -> bool:
     return now_ts >= pubdate + delta_s
 
 
-def get_stat(s: requests.Session, aid: Optional[int], bvid: Optional[str]) -> Optional[Dict[str, Any]]:
+def get_stat_by_bvid(s: requests.Session, bvid: str) -> Optional[Dict[str, Any]]:
     """
-    README 指定 archive/stat。
-    官方常用参数是 aid；有些环境可能支持 bvid。
-    这里做容错：优先 aid，没有再尝试 bvid。
+    仅用 bvid 调 archive/stat（不再用 aid）
     """
-    params = {}
-    if aid and int(aid) > 0:
-        params["aid"] = int(aid)
-    elif bvid:
-        params["bvid"] = str(bvid)
-    else:
+    if not bvid:
         return None
 
     try:
-        r = s.get(STAT_API, params=params, timeout=20)
+        r = s.get(STAT_API, params={"bvid": bvid}, timeout=20)
     except requests.RequestException:
         return None
 
@@ -155,19 +156,16 @@ def get_stat(s: requests.Session, aid: Optional[int], bvid: Optional[str]) -> Op
     if not isinstance(data, dict):
         return None
 
-    # 常见字段：view/like/coin...
     return data
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("day", nargs="?", default=today_str(), help="YYYY-MM-DD (default: today)")
+    ap.add_argument("day", nargs="?", default=today_str_paris(), help="YYYY-MM-DD (default: today in Europe/Paris)")
     ap.add_argument("--sleep", type=float, default=0.15, help="request sleep seconds (default: 0.15)")
     args = ap.parse_args()
 
     day = args.day
-    now_ts = utc_ts()
-
     daily_path = os.path.join(DAILY_DIR, f"{day}.json")
     if not os.path.exists(daily_path):
         raise FileNotFoundError(f"daily file not found: {daily_path}")
@@ -184,8 +182,7 @@ def main() -> None:
 
     for v in videos:
         pubdate = int(v.get("pubdate") or 0)
-        aid = v.get("aid")
-        bvid = v.get("bvid")
+        bvid = str(v.get("bvid") or "").strip()
 
         snapshots = v.get("snapshots") or {}
         features = v.get("features") or {}
@@ -194,7 +191,10 @@ def main() -> None:
         if not isinstance(features, dict):
             features = {}
 
-        # 对每个 delta 按规则补抓
+        # 每条视频用“当前时刻”判断资格（不要用全局 now）
+        now_ts = utc_ts()
+
+        # 先判断是否需要补抓
         need_any = False
         for key, ds in DELTAS:
             if key in snapshots:
@@ -209,7 +209,11 @@ def main() -> None:
             v["features"] = features
             continue
 
-        stat = get_stat(s, aid=int(aid) if aid is not None else None, bvid=str(bvid) if bvid else None)
+        if not bvid:
+            failed += 1
+            continue
+
+        stat = get_stat_by_bvid(s, bvid=bvid)
         if stat is None:
             failed += 1
             continue
@@ -218,6 +222,7 @@ def main() -> None:
         like = int(stat.get("like") or 0)
         coin = int(stat.get("coin") or 0)
 
+        # 对每个 delta 按规则补抓（不覆盖）
         for key, ds in DELTAS:
             if key in snapshots:
                 skipped_exists += 1
@@ -234,7 +239,8 @@ def main() -> None:
 
         time.sleep(float(args.sleep))
 
-    daily["capture_ts"] = now_ts
+    # daily 级别 capture_ts 取“脚本结束时刻”
+    daily["capture_ts"] = utc_ts()
     daily["videos"] = videos
     recompute_daily_stats(daily)
 
