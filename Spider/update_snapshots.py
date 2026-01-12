@@ -209,13 +209,26 @@ def main() -> None:
             continue
 
         now_ts = utc_ts()
-        view = int(stat.get("view") or 0)
-        like = int(stat.get("like") or 0)
-        coin = int(stat.get("coin") or 0)
+
+        # wbi/view 的统计字段在 data.stat 里
+        stat_obj = stat.get("stat") or {}
+        if not isinstance(stat_obj, dict):
+            stat_obj = {}
+
+        view = int(stat_obj.get("view") or 0)
+        like = int(stat_obj.get("like") or 0)
+        coin = int(stat_obj.get("coin") or 0)
 
         # 每次运行只写一个槽位（第1次/第2次/第3次/第4次）
-        snapshots[slot] = {"ts": now_ts, "view": view, "like": like, "coin": coin}
-        features[slot] = {"like_rate": like_rate(like, view)}
+        snapshots[slot] = {
+            "ts": now_ts,
+            "view": view,
+            "like": like,
+            "coin": coin,
+        }
+        features[slot] = {
+            "like_rate": like_rate(like, view),
+        }
         updated += 1
 
         v["snapshots"] = snapshots
