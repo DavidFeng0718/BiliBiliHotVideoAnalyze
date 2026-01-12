@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-update_snapshots.py — Week2: 快照补抓（1h/3h/6h）仅用 bvid
+update_snapshots.py — Week2: 快照补抓（宽松版，按捕捉次数）
 
-强制要求（来自 README）：
-- API: https://api.bilibili.com/x/web-interface/archive/stat
-- 快照规则：
-  - 1h：now >= pubdate + 1h
-  - 3h：now >= pubdate + 3h
-  - 6h：now >= pubdate + 6h
-- 实现要求：
-  - 不允许提前抓
-  - 不允许覆盖已有快照
-  - 写入 snapshots["1h"/"3h"/"6h"] 与 features[...]（同 key）
+✅ 仅使用 bvid 调 archive/stat
+✅ daily 文件名按北京时间（Asia/Shanghai）
+✅ 不再用 pubdate 时间判断
+✅ 每个视频每次运行最多写 1 个槽位：
+   第1次 -> 1h
+   第2次 -> 3h
+   第3次 -> 6h
+   第4次 -> 12h
+   超过4次 -> 跳过
+✅ 不覆盖已有快照
+✅ 更稳健：connect/read 超时、异常吞掉继续跑
 """
 
 from __future__ import annotations
@@ -26,7 +27,7 @@ from typing import Any, Dict, List, Optional
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-
+from zoneinfo import ZoneInfo  # Python 3.9+
 
 STAT_API = "https://api.bilibili.com/x/web-interface/archive/stat"
 
@@ -42,19 +43,15 @@ HEADERS = {
     "Referer": "https://www.bilibili.com/",
 }
 
-DELTAS = [("1h", 3600), ("3h", 3 * 3600), ("6h", 6 * 3600)]
+SLOTS = ["1h", "3h", "6h", "12h"]
 
 
-# ✅ 明确用巴黎时区生成 daily 文件名，避免跨天错位
-def today_str_paris() -> str:
-    # Python 3.9+ 内置 zoneinfo
-    try:
-        from zoneinfo import ZoneInfo  # type: ignore
-        tz = ZoneInfo("Europe/Paris")
-        return datetime.now(tz).date().isoformat()
-    except Exception:
-        # 兜底：用本地时区
-        return datetime.now().date().isoformat()
+def now_beijing() -> datetime:
+    return datetime.now(ZoneInfo("Asia/Shanghai"))
+
+
+def today_str_beijing() -> str:
+    return now_beijing().date().isoformat()
 
 
 def utc_ts() -> int:
@@ -81,6 +78,7 @@ def atomic_write_json(path: str, obj: Any) -> None:
 def request_session() -> requests.Session:
     s = requests.Session()
     s.headers.update(HEADERS)
+
     retry = Retry(
         total=3,
         backoff_factor=0.8,
@@ -88,10 +86,54 @@ def request_session() -> requests.Session:
         allowed_methods=["GET"],
         raise_on_status=False,
     )
-    adapter = HTTPAdapter(max_retries=retry)
+    adapter = HTTPAdapter(max_retries=retry, pool_connections=50, pool_maxsize=50)
     s.mount("https://", adapter)
     s.mount("http://", adapter)
     return s
+
+
+def like_rate(like: int, view: int) -> Optional[float]:
+    if view <= 0:
+        return None
+    return round(float(like) / float(view), 6)
+
+
+def next_slot(snapshots: Dict[str, Any]) -> Optional[str]:
+    """根据已有快照数量，找到下一个未写入的槽位"""
+    if not isinstance(snapshots, dict):
+        return SLOTS[0]
+    for k in SLOTS:
+        if k not in snapshots:
+            return k
+    return None
+
+
+def get_stat_by_bvid(s: requests.Session, bvid: str) -> Optional[Dict[str, Any]]:
+    """
+    仅 bvid 调用 archive/stat
+    更稳健：timeout 用 (connect, read)，避免长时间卡住
+    """
+    try:
+        r = s.get(STAT_API, params={"bvid": bvid}, timeout=(5, 12))
+    except (requests.Timeout, requests.RequestException):
+        return None
+
+    if r.status_code == 404:
+        return None
+
+    try:
+        payload = r.json()
+    except Exception:
+        return None
+
+    if payload.get("code") != 0:
+        return None
+
+    data = payload.get("data")
+    if not isinstance(data, dict):
+        return None
+
+    return data
 
 
 def recompute_daily_stats(daily: Dict[str, Any]) -> None:
@@ -117,52 +159,11 @@ def recompute_daily_stats(daily: Dict[str, Any]) -> None:
     daily["category_stats"] = cat
 
 
-def like_rate(like: int, view: int) -> Optional[float]:
-    if view <= 0:
-        return None
-    return round(float(like) / float(view), 6)
-
-
-def eligible(pubdate: int, now_ts: int, delta_s: int) -> bool:
-    if pubdate <= 0:
-        return False
-    return now_ts >= pubdate + delta_s
-
-
-def get_stat_by_bvid(s: requests.Session, bvid: str) -> Optional[Dict[str, Any]]:
-    """
-    仅用 bvid 调 archive/stat（不再用 aid）
-    """
-    if not bvid:
-        return None
-
-    try:
-        r = s.get(STAT_API, params={"bvid": bvid}, timeout=20)
-    except requests.RequestException:
-        return None
-
-    if r.status_code == 404:
-        return None
-
-    try:
-        payload = r.json()
-    except Exception:
-        return None
-
-    if payload.get("code") != 0:
-        return None
-
-    data = payload.get("data") or {}
-    if not isinstance(data, dict):
-        return None
-
-    return data
-
-
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("day", nargs="?", default=today_str_paris(), help="YYYY-MM-DD (default: today in Europe/Paris)")
-    ap.add_argument("--sleep", type=float, default=0.15, help="request sleep seconds (default: 0.15)")
+    ap.add_argument("day", nargs="?", default=today_str_beijing(), help="YYYY-MM-DD (default: Beijing today)")
+    ap.add_argument("--sleep", type=float, default=0.20, help="sleep seconds per request (default: 0.20)")
+    ap.add_argument("--log_every", type=int, default=50, help="print progress every N videos (default: 50)")
     args = ap.parse_args()
 
     day = args.day
@@ -176,13 +177,17 @@ def main() -> None:
     s = request_session()
 
     updated = 0
-    skipped_early = 0
-    skipped_exists = 0
+    skipped_full = 0
+    skipped_no_bvid = 0
     failed = 0
 
-    for v in videos:
-        pubdate = int(v.get("pubdate") or 0)
+    total = len(videos)
+
+    for i, v in enumerate(videos, 1):
         bvid = str(v.get("bvid") or "").strip()
+        if not bvid:
+            skipped_no_bvid += 1
+            continue
 
         snapshots = v.get("snapshots") or {}
         features = v.get("features") or {}
@@ -191,55 +196,36 @@ def main() -> None:
         if not isinstance(features, dict):
             features = {}
 
-        # 每条视频用“当前时刻”判断资格（不要用全局 now）
-        now_ts = utc_ts()
-
-        # 先判断是否需要补抓
-        need_any = False
-        for key, ds in DELTAS:
-            if key in snapshots:
-                continue
-            if not eligible(pubdate, now_ts, ds):
-                skipped_early += 1
-                continue
-            need_any = True
-
-        if not need_any:
+        slot = next_slot(snapshots)
+        if slot is None:
+            skipped_full += 1
             v["snapshots"] = snapshots
             v["features"] = features
             continue
 
-        if not bvid:
-            failed += 1
-            continue
-
-        stat = get_stat_by_bvid(s, bvid=bvid)
+        stat = get_stat_by_bvid(s, bvid)
         if stat is None:
             failed += 1
             continue
 
+        now_ts = utc_ts()
         view = int(stat.get("view") or 0)
         like = int(stat.get("like") or 0)
         coin = int(stat.get("coin") or 0)
 
-        # 对每个 delta 按规则补抓（不覆盖）
-        for key, ds in DELTAS:
-            if key in snapshots:
-                skipped_exists += 1
-                continue
-            if not eligible(pubdate, now_ts, ds):
-                continue
-
-            snapshots[key] = {"ts": int(now_ts), "view": view, "like": like, "coin": coin}
-            features[key] = {"like_rate": like_rate(like, view)}
-            updated += 1
+        # 每次运行只写一个槽位（第1次/第2次/第3次/第4次）
+        snapshots[slot] = {"ts": now_ts, "view": view, "like": like, "coin": coin}
+        features[slot] = {"like_rate": like_rate(like, view)}
+        updated += 1
 
         v["snapshots"] = snapshots
         v["features"] = features
 
+        if args.log_every > 0 and i % int(args.log_every) == 0:
+            print(f"[update_snapshots] progress {i}/{total} updated={updated} failed={failed} skipped_full={skipped_full}")
+
         time.sleep(float(args.sleep))
 
-    # daily 级别 capture_ts 取“脚本结束时刻”
     daily["capture_ts"] = utc_ts()
     daily["videos"] = videos
     recompute_daily_stats(daily)
@@ -247,9 +233,8 @@ def main() -> None:
     atomic_write_json(daily_path, daily)
 
     print(
-        f"[update_snapshots] day={day} updated_snapshots={updated} "
-        f"skipped_early={skipped_early} skipped_exists={skipped_exists} failed={failed} "
-        f"total_videos={daily['count']}"
+        f"[update_snapshots] day={day} updated={updated} failed={failed} "
+        f"skipped_full={skipped_full} skipped_no_bvid={skipped_no_bvid} total_videos={daily['count']}"
     )
     print(f"[update_snapshots] wrote: {daily_path}")
 

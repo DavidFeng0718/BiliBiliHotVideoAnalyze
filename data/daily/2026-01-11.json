@@ -1,6 +1,10 @@
 {
   "date": "2026-01-11",
+<<<<<<< HEAD
   "capture_ts": 1768145775,
+=======
+  "capture_ts": 1768142268,
+>>>>>>> ce6d531 (change the snapshot update logic to handle new data format)
   "source": "bilibili_popular",
   "count": 2619,
   "category_stats": {
