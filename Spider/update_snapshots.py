@@ -29,7 +29,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from zoneinfo import ZoneInfo  # Python 3.9+
 
-STAT_API = "https://api.bilibili.com/x/web-interface/archive/stat"
+STAT_API = "https://api.bilibili.com/x/web-interface/wbi/view"
 
 DATA_DIR = "data"
 DAILY_DIR = os.path.join(DATA_DIR, "daily")
