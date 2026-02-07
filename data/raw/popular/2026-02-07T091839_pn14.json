@@ -1,0 +1,89 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 116010086634588,
+        "videos": 1,
+        "tid": 47,
+        "tname": "同人·手书",
+        "copyright": 1,
+        "pic": "http://i2.hdslb.com/bfs/archive/0c624880a8888c043b0fdf1bde8103d6e5c6eb39.jpg",
+        "title": "不知道，兹白仙人的舞姿很曼妙",
+        "pubdate": 1770285600,
+        "ctime": 1770173625,
+        "desc": "鸽子摇？白马摇！",
+        "state": 0,
+        "duration": 32,
+        "mission_id": 4057046,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 1,
+          "no_reprint": 1,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 1118188465,
+          "name": "在下小狐兔",
+          "face": "https://i1.hdslb.com/bfs/face/182be1a72202ae348f9d39f047d7b13e32798f80.jpg"
+        },
+        "stat": {
+          "aid": 116010086634588,
+          "view": 857664,
+          "danmaku": 166,
+          "reply": 1006,
+          "favorite": 30176,
+          "coin": 7102,
+          "share": 2121,
+          "now_rank": 0,
+          "his_rank": 68,
+          "like": 120309,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 857664,
+          "fav_g": 0,
+          "like_g": 1153
+        },
+        "dynamic": "如果喜欢！请给我一个蒸蚌三连吧！！",
+        "cid": 35807169512,
+        "dimension": {
+          "width": 1080,
+          "height": 1920,
+          "rotate": 0
+        },
+        "season_id": 73722,
+        "short_link_v2": "https://b23.tv/BV1N1fXBzEoV",
+        "first_frame": "http://i2.hdslb.com/bfs/storyff/_00003rqzc3h0apkej2n4c1wzdsw4e6b_firsti.jpg",
+        "pub_location": "浙江",
+        "cover43": "http://i0.hdslb.com/bfs/archive/607738f40c8c2b3e1925017d9f6e0ce8f303c1f0.jpg",
+        "tidv2": 2037,
+        "tnamev2": "同人动画",
+        "pid_v2": 1005,
+        "pid_name_v2": "二次元",
+        "bvid": "BV1N1fXBzEoV",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "12万点赞",
+          "corner_mark": 1
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
