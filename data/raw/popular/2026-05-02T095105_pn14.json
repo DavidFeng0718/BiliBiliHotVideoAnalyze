@@ -1,0 +1,88 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 116452652814628,
+        "videos": 1,
+        "tid": 219,
+        "tname": "汪星人",
+        "copyright": 1,
+        "pic": "http://i1.hdslb.com/bfs/archive/d34ac0a944865a0309cc251231e64a85f3956ce4.jpg",
+        "title": "谢谢你们，曾为人类拼过命【搜救犬】",
+        "pubdate": 1777375800,
+        "ctime": 1776926641,
+        "desc": "",
+        "state": 0,
+        "duration": 100,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 1,
+          "no_reprint": 1,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 1628330171,
+          "name": "诚实一口和它",
+          "face": "https://i2.hdslb.com/bfs/face/03696ee8a17b57145298cc4f0aa0d6867cd00b2c.jpg"
+        },
+        "stat": {
+          "aid": 116452652814628,
+          "view": 702716,
+          "danmaku": 490,
+          "reply": 925,
+          "favorite": 7502,
+          "coin": 12474,
+          "share": 281,
+          "now_rank": 0,
+          "his_rank": 0,
+          "like": 121440,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 702716,
+          "fav_g": 1265,
+          "like_g": 1123
+        },
+        "dynamic": "",
+        "cid": 37745199735,
+        "dimension": {
+          "width": 1080,
+          "height": 1920,
+          "rotate": 0
+        },
+        "season_id": 7515941,
+        "short_link_v2": "https://b23.tv/BV1YeohBSE96",
+        "first_frame": "http://i2.hdslb.com/bfs/storyff/_000023zjf5hyefy5t2jj2ncs6smxqqb_firsti.jpg",
+        "pub_location": "上海",
+        "cover43": "http://i2.hdslb.com/bfs/archive/5fc4738471849967542867f27ae0e0fbd6ea4ca4.jpg",
+        "tidv2": 2168,
+        "tnamev2": "狗",
+        "pid_v2": 1024,
+        "pid_name_v2": "动物",
+        "bvid": "BV1YeohBSE96",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
