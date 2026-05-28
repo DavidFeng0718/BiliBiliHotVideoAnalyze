@@ -1,0 +1,89 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 116639433495898,
+        "videos": 1,
+        "tid": 182,
+        "tname": "影视杂谈",
+        "copyright": 1,
+        "pic": "http://i1.hdslb.com/bfs/archive/ab0bc405255faf113f174033f26e9b2f5c665322.jpg",
+        "title": "【高分经典】自杀、纵火、暴食、滥交，高敏OR病态？60年代女版《飞跃疯人院》",
+        "pubdate": 1779784200,
+        "ctime": 1779776780,
+        "desc": "《移魂女郎》（英语：Girl, Interrupted），1999年美国心理剧情惊悚片，苏珊娜（薇诺娜·瑞德 Winona Ryder饰）本是正值花季的普通少女，却被诊断为“边缘精神错乱症”而送进了精神病院。她在精神病院结识到了一群看似乖戾却不同寻常的新朋友。具有反社会人格的莉莎（安吉丽娜·朱莉 Angelina Jolie饰），带领患有说谎癖的乔治娜（克丽·杜瓦尔 Clea DuVall饰），对火深怀恐惧的珀丽（伊丽莎白·莫斯 Elisabeth Moss饰），不能当着他人面进食的黛西（布莱特妮·墨菲 ",
+        "state": 0,
+        "duration": 2842,
+        "mission_id": 4066245,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 0,
+          "no_reprint": 1,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 628018266,
+          "name": "周周怪与哈基米",
+          "face": "https://i0.hdslb.com/bfs/face/c11abe1e62e5c18000f6bc21ab57e4f11cb75298.jpg"
+        },
+        "stat": {
+          "aid": 116639433495898,
+          "view": 152321,
+          "danmaku": 794,
+          "reply": 313,
+          "favorite": 5349,
+          "coin": 2493,
+          "share": 245,
+          "now_rank": 0,
+          "his_rank": 0,
+          "like": 7741,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 152321,
+          "fav_g": 1,
+          "like_g": 0
+        },
+        "dynamic": "谁还记得这部，央六《佳片有约》播放过的电影？",
+        "cid": 38621349087,
+        "dimension": {
+          "width": 1920,
+          "height": 1080,
+          "rotate": 0
+        },
+        "season_id": 1774708,
+        "short_link_v2": "https://b23.tv/BV1FyVc6uE17",
+        "first_frame": "http://i0.hdslb.com/bfs/storyff/_00001te4avhdofj0y1z2cfue4q10d3b_firsti.jpg",
+        "pub_location": "马来西亚",
+        "cover43": "http://i0.hdslb.com/bfs/archive/b8d8e7c40d758a96bb643a2acc6975264c12cc12.jpg",
+        "tidv2": 2001,
+        "tnamev2": "影视解读",
+        "pid_v2": 1001,
+        "pid_name_v2": "影视",
+        "bvid": "BV1FyVc6uE17",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
