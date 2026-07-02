@@ -1,0 +1,88 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 116838058951764,
+        "videos": 1,
+        "tid": 215,
+        "tname": "美食记录",
+        "copyright": 1,
+        "pic": "http://i1.hdslb.com/bfs/archive/e6aea0ed8ecdd9384194331d175cfab146ca7a80.jpg",
+        "title": "【小石奶凶】今天生日吃一个小蛋糕",
+        "pubdate": 1782807463,
+        "ctime": 1782807463,
+        "desc": "-",
+        "state": 0,
+        "duration": 105,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 0,
+          "no_reprint": 1,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 259713513,
+          "name": "小石奶凶不月半",
+          "face": "https://i0.hdslb.com/bfs/face/06483c6cc903d43639cf43069e88ab3bc860f4a6.jpg"
+        },
+        "stat": {
+          "aid": 116838058951764,
+          "view": 346726,
+          "danmaku": 6965,
+          "reply": 1113,
+          "favorite": 2080,
+          "coin": 1005,
+          "share": 233,
+          "now_rank": 0,
+          "his_rank": 0,
+          "like": 58229,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 346726,
+          "fav_g": 283,
+          "like_g": 264
+        },
+        "dynamic": "",
+        "cid": 39530136020,
+        "dimension": {
+          "width": 1080,
+          "height": 1920,
+          "rotate": 0
+        },
+        "short_link_v2": "https://b23.tv/BV1EMKZ6yEGW",
+        "up_from_v2": 9,
+        "first_frame": "http://i0.hdslb.com/bfs/storyff/_0000384yhy0cl6u582pmi4gl994ugab_firsti.jpg",
+        "pub_location": "湖南",
+        "cover43": "",
+        "tidv2": 2152,
+        "tnamev2": "美食记录",
+        "pid_v2": 1020,
+        "pid_name_v2": "美食",
+        "bvid": "BV1EMKZ6yEGW",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
