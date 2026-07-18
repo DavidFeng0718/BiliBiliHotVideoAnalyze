@@ -1,0 +1,89 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 116917029307192,
+        "videos": 1,
+        "tid": 65,
+        "tname": "网络游戏",
+        "copyright": 1,
+        "pic": "http://i1.hdslb.com/bfs/archive/e0d52d595ca432f7dbb2701289e2348b1152405c.jpg",
+        "title": "三角洲转盘挑战赛今日挑战者:5级头，嫂子护甲#三角洲 #三角洲行动",
+        "pubdate": 1784012356,
+        "ctime": 1784012344,
+        "desc": "-",
+        "state": 0,
+        "duration": 142,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 0,
+          "no_reprint": 1,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 3707011273329636,
+          "name": "猪玩",
+          "face": "https://i0.hdslb.com/bfs/face/5e0c8f8e3699423ad7b8403ffc3262b3be55d889.jpg"
+        },
+        "stat": {
+          "aid": 116917029307192,
+          "view": 2076047,
+          "danmaku": 173,
+          "reply": 75,
+          "favorite": 133485,
+          "coin": 22525,
+          "share": 75,
+          "now_rank": 0,
+          "his_rank": 0,
+          "like": 135182,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 2076047,
+          "fav_g": 129995,
+          "like_g": 95939
+        },
+        "dynamic": "",
+        "cid": 39935807371,
+        "dimension": {
+          "width": 1546,
+          "height": 1080,
+          "rotate": 0
+        },
+        "season_id": 8496757,
+        "short_link_v2": "https://b23.tv/BV1PCN963EvT",
+        "up_from_v2": 35,
+        "first_frame": "http://i2.hdslb.com/bfs/storyff/_00000ti9k4zzd4wp12p8736bopitnxb_firsti.jpg",
+        "pub_location": "河南",
+        "cover43": "http://i1.hdslb.com/bfs/archive/99a439d0791249e8f090320723960bf1624dc8f2.jpg",
+        "tidv2": 2071,
+        "tnamev2": "射击游戏",
+        "pid_v2": 1008,
+        "pid_name_v2": "游戏",
+        "bvid": "BV1PCN963EvT",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
