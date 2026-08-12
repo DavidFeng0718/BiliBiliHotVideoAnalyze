@@ -1,0 +1,90 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 117045324677963,
+        "videos": 1,
+        "tid": 230,
+        "tname": "软件应用",
+        "copyright": 1,
+        "pic": "http://i2.hdslb.com/bfs/archive/d23b951a4e00d07062be2f6d21995fa6fe66c13a.jpg",
+        "title": "假如你是小馒头",
+        "pubdate": 1785970007,
+        "ctime": 1785970007,
+        "desc": "被卷入漩涡之后，你能撑多久？\n\nBGM: Hans Zimmer - No Time For Caution",
+        "state": 0,
+        "duration": 236,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 0,
+          "no_reprint": 1,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 29843139,
+          "name": "农民伯伯吖",
+          "face": "https://i0.hdslb.com/bfs/face/22bc9ad221bb5af9f4eed3da5258e539e2c9f3f3.jpg"
+        },
+        "stat": {
+          "aid": 117045324677963,
+          "view": 3390843,
+          "danmaku": 1867,
+          "reply": 2656,
+          "favorite": 5845,
+          "coin": 1208,
+          "share": 1189,
+          "now_rank": 0,
+          "his_rank": 100,
+          "like": 87963,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 3390843,
+          "fav_g": 0,
+          "like_g": 121
+        },
+        "dynamic": "",
+        "cid": 40636387040,
+        "dimension": {
+          "width": 2160,
+          "height": 3840,
+          "rotate": 0
+        },
+        "season_id": 8669585,
+        "short_link_v2": "https://b23.tv/BV1XJMm6VEHC",
+        "up_from_v2": 35,
+        "first_frame": "http://i2.hdslb.com/bfs/storyff/_00000v41udnzushck21edal7j618clb_firsti.jpg",
+        "pub_location": "福建",
+        "cover43": "http://i0.hdslb.com/bfs/archive/672e1651ae418d704e292b5bc19afee795b4b0d2.jpg",
+        "tidv2": 2094,
+        "tnamev2": "科学科普",
+        "pid_v2": 1010,
+        "pid_name_v2": "知识",
+        "attribute_v3": 4,
+        "bvid": "BV1XJMm6VEHC",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
