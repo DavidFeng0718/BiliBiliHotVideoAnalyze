@@ -1,0 +1,89 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 117205194837190,
+        "videos": 1,
+        "tid": 27,
+        "tname": "综合",
+        "copyright": 1,
+        "pic": "http://i2.hdslb.com/bfs/archive/5bf7a75315ff5549824f8c7c1a96e567ef3c734b.jpg",
+        "title": "爆肝！还原《 Re:0》傲慢if线第二集——“你不够勤勉啊，怠惰司教”",
+        "pubdate": 1788409565,
+        "ctime": 1788409565,
+        "desc": "你是......怠惰呢",
+        "state": 0,
+        "duration": 715,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 0,
+          "no_reprint": 1,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 406956932,
+          "name": "偌小夏",
+          "face": "https://i2.hdslb.com/bfs/face/98e256906b9b40cdfb4a209d9c34910ca8050045.jpg"
+        },
+        "stat": {
+          "aid": 117205194837190,
+          "view": 16254,
+          "danmaku": 77,
+          "reply": 174,
+          "favorite": 678,
+          "coin": 1240,
+          "share": 74,
+          "now_rank": 0,
+          "his_rank": 0,
+          "like": 1916,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 16254,
+          "fav_g": 0,
+          "like_g": 0
+        },
+        "dynamic": "",
+        "cid": 41540518955,
+        "dimension": {
+          "width": 2560,
+          "height": 1440,
+          "rotate": 0
+        },
+        "season_id": 9003336,
+        "short_link_v2": "https://b23.tv/BV1yktX6aEsx",
+        "first_frame": "http://i2.hdslb.com/bfs/storyff/_00001dwgby503kglb2kbmsg3o3m1c0b_firsti.jpg",
+        "pub_location": "上海",
+        "cover43": "http://i2.hdslb.com/bfs/archive/8e7bbdf1d5a7eaef129c78ce55be3ddda9fb9ce3.jpg",
+        "tidv2": 2041,
+        "tnamev2": "动漫剪辑",
+        "pid_v2": 1005,
+        "pid_name_v2": "二次元",
+        "attribute_v3": 4,
+        "bvid": "BV1yktX6aEsx",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
