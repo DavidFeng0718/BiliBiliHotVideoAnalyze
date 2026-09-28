@@ -1,0 +1,92 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 117342549839328,
+        "videos": 2,
+        "tid": 47,
+        "tname": "同人·手书",
+        "copyright": 1,
+        "pic": "http://i1.hdslb.com/bfs/archive/da5174c3eb440c98498ed8a26f8b2740e24b440b.jpg",
+        "title": "【终末地动画】捏捏祀的小圆脸~~（捏脸教程更新P2）",
+        "pubdate": 1790505494,
+        "ctime": 1790505494,
+        "desc": "向渊行exe灵感菇不足了，然后又有稿件数量的任务要完成，没办法只能先垫一个小动画出来了（\n上一期把期望摆在那了我水也不好意思，只能把质量打磨好了在接着加速吧\n灵感菇来源以及动作参考：BV1heTs6rEpo   BV1AEY26pEid\n模型：茶叶味香皂\n渲染：miaobox\n动作：写不完的试卷",
+        "state": 0,
+        "duration": 152,
+        "mission_id": 4069834,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 0,
+          "no_reprint": 1,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 455391738,
+          "name": "写不完的试卷",
+          "face": "https://i0.hdslb.com/bfs/face/53513740d408bb67e06af7c26443068943cd014f.jpg"
+        },
+        "stat": {
+          "aid": 117342549839328,
+          "view": 83084,
+          "danmaku": 23,
+          "reply": 299,
+          "favorite": 4295,
+          "coin": 814,
+          "share": 1117,
+          "now_rank": 0,
+          "his_rank": 0,
+          "like": 8906,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 83084,
+          "fav_g": 1,
+          "like_g": 0
+        },
+        "dynamic": "",
+        "cid": 42247849991,
+        "dimension": {
+          "width": 1920,
+          "height": 1080,
+          "rotate": 0
+        },
+        "season_id": 9063273,
+        "short_link_v2": "https://b23.tv/BV1oMa86cEQi",
+        "first_frame": "http://i2.hdslb.com/bfs/storyff/_00001zb6y16vissaj2bqfr3i3h6ncwb_firsti.jpg",
+        "pub_location": "广东",
+        "cover43": "http://i2.hdslb.com/bfs/archive/eb744eb4864657b131a9214dc41b30e99267c305.jpg",
+        "tidv2": 2053,
+        "tnamev2": "动漫教学",
+        "pid_v2": 1005,
+        "pid_name_v2": "二次元",
+        "attribute_v3": 4,
+        "current_state": 0,
+        "global_state": 0,
+        "bvid": "BV1oMa86cEQi",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
