@@ -1,0 +1,91 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 117391388314069,
+        "videos": 1,
+        "tid": 24,
+        "tname": "MAD·AMV",
+        "copyright": 3,
+        "pic": "http://i0.hdslb.com/bfs/archive/3cb3ce3333500f305f2bfb2680dc7d0ea79578d6.jpg",
+        "title": "假如藤都子打算囚禁薇欧拉【#2】【薇藤】【微恐】",
+        "pubdate": 1791250776,
+        "ctime": 1791250777,
+        "desc": "呃啊终于赶出来了泪目了\n本集主要还是为下一集做铺垫，很多详细设定下一集才会说嘿嘿嘿\n本集依然燃烧海量token才得以完成，恳请各位三连帮忙回血阿里嘎多\n依然带有轻微的惊悚要素，但基本不影响观看！\n本系列预计还有两集完结，会转到纯爱的！\nanyway pls enjoy",
+        "state": 0,
+        "duration": 1442,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 0,
+          "no_reprint": 0,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 87776510,
+          "name": "endergonic",
+          "face": "https://i2.hdslb.com/bfs/face/9300c363796ec3a9d9ab376194d5e3e94e2a7141.jpg"
+        },
+        "stat": {
+          "aid": 117391388314069,
+          "view": 141082,
+          "danmaku": 513,
+          "reply": 753,
+          "favorite": 9511,
+          "coin": 2308,
+          "share": 2455,
+          "now_rank": 0,
+          "his_rank": 0,
+          "like": 17337,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 141082,
+          "fav_g": 0,
+          "like_g": 0
+        },
+        "dynamic": "",
+        "cid": 42498917789,
+        "dimension": {
+          "width": 1920,
+          "height": 1080,
+          "rotate": 0
+        },
+        "season_id": 9093285,
+        "short_link_v2": "https://b23.tv/BV1swHf6aEWY",
+        "first_frame": "http://i0.hdslb.com/bfs/storyff/_00002q1x0mn3kgobt2t9vln71nei53b_firsti.jpg",
+        "pub_location": "上海",
+        "cover43": "http://i0.hdslb.com/bfs/archive/3eef371f8b95dd583e7f6df6e4e7adebb09d417f.jpg",
+        "tidv2": 2037,
+        "tnamev2": "同人动画",
+        "pid_v2": 1005,
+        "pid_name_v2": "二次元",
+        "attribute_v3": 4,
+        "current_state": 0,
+        "global_state": 0,
+        "bvid": "BV1swHf6aEWY",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
