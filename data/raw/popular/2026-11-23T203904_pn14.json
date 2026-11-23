@@ -1,0 +1,93 @@
+{
+  "code": 0,
+  "message": "OK",
+  "ttl": 1,
+  "data": {
+    "list": [
+      {
+        "aid": 117653716929365,
+        "videos": 1,
+        "tid": 138,
+        "tname": "搞笑",
+        "copyright": 3,
+        "pic": "http://i1.hdslb.com/bfs/archive/20bb36dedf47523538473a80f0a1c9aa2b32416b.jpg",
+        "title": "当你的老师爱讲冷笑话…",
+        "pubdate": 1795255257,
+        "ctime": 1795253558,
+        "desc": "更新啦更新啦更新啦更新啦更新啦！求三连求三连求三连求三连求三连求三连！",
+        "state": 0,
+        "duration": 207,
+        "mission_id": 4071496,
+        "rights": {
+          "bp": 0,
+          "elec": 0,
+          "download": 0,
+          "movie": 0,
+          "pay": 0,
+          "hd5": 0,
+          "no_reprint": 0,
+          "autoplay": 1,
+          "ugc_pay": 0,
+          "is_cooperation": 0,
+          "ugc_pay_preview": 0,
+          "no_background": 0,
+          "arc_pay": 0,
+          "pay_free_watch": 0
+        },
+        "owner": {
+          "mid": 1590705,
+          "name": "良心发作的chunchun",
+          "face": "https://i0.hdslb.com/bfs/face/09fdb20792782e4f5efcaa75fc78528dd61883fd.jpg"
+        },
+        "stat": {
+          "aid": 117653716929365,
+          "view": 550836,
+          "danmaku": 640,
+          "reply": 780,
+          "favorite": 8698,
+          "coin": 4324,
+          "share": 930,
+          "now_rank": 0,
+          "his_rank": 0,
+          "like": 56336,
+          "dislike": 0,
+          "vt": 0,
+          "vv": 550836,
+          "fav_g": 929,
+          "like_g": 609
+        },
+        "dynamic": "更新啦更新啦更新啦更新啦更新啦！求三连求三连求三连求三连求三连求三连！",
+        "cid": 43793778485,
+        "dimension": {
+          "width": 1920,
+          "height": 1080,
+          "rotate": 0
+        },
+        "season_id": 9081003,
+        "short_link_v2": "https://b23.tv/BV19dyhz3Enh",
+        "first_frame": "http://i1.hdslb.com/bfs/storyff/_00000opahj6xcpzfe1zk6rv99top9zb_firsti.jpg",
+        "pub_location": "四川",
+        "cover43": "http://i2.hdslb.com/bfs/archive/996e2d729a6fddd17adb033cbff7c2adf0412167.jpg",
+        "tidv2": 2154,
+        "tnamev2": "剧情演绎",
+        "pid_v2": 1021,
+        "pid_name_v2": "小剧场",
+        "attribute_v3": 4,
+        "current_state": 0,
+        "global_state": 0,
+        "human_type_id": 1021,
+        "bvid": "BV19dyhz3Enh",
+        "season_type": 0,
+        "is_ogv": false,
+        "ogv_info": null,
+        "enable_vt": 0,
+        "ai_rcmd": null,
+        "rcmd_reason": {
+          "content": "",
+          "corner_mark": 0
+        }
+      }
+    ],
+    "no_more": false
+  }
+}
